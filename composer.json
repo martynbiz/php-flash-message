@@ -14,8 +14,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "MartynBiz": "src"
+        "psr-4": {
+            "MartynBiz\\FlashMessage\\": "src/"
         }
     },
     "require": {
