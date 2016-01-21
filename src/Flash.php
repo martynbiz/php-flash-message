@@ -44,6 +44,18 @@ class Flash
     }
 
     /**
+     * Return true if key exists
+     *
+     * @param string $key The key to check
+     */
+    public function has($key)
+    {
+        $messages = $this->storage->getArrayCopy();
+
+        return isset($messages[$key]);
+    }
+
+    /**
      * Get flash messages, and reset storage
      * @return array Messages to show for current request
      */

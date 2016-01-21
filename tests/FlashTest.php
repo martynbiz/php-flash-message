@@ -16,17 +16,24 @@ class FlashTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($flash instanceof Flash);
     }
 
-    public function testGettingSetting()
+    public function testAddingHasAndFlushing()
     {
         $flash = new Flash();
 
+        // add messages
         $flash->addMessage('key1', 'value1');
         $flash->addMessage('key2', 'value2');
-        $flash->addMessage('key2', 'value3');
+        $flash->addMessage('key3', 'value3');
+
+        // assert has method
+        $this->assertTrue( $flash->has('key1') );
+        $this->assertTrue( $flash->has('key2') );
+        $this->assertTrue( $flash->has('key3') );
 
         $expected = array(
             'key1' => 'value1',
-            'key2' => 'value3',
+            'key2' => 'value2',
+            'key3' => 'value3',
         );
 
         // assert first time to access messages
